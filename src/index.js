@@ -11,7 +11,7 @@ export default {
       const id = env.CHAT_DO.idFromName(sessionId);
       const stub = env.CHAT_DO.get(id);
 
-      const model = body.model || "@cf/meta/llama-3.1-8b-instruct";
+      const model = body.model || "@cf/meta/llama-3-8b-instruct";
 
       const doResp = await stub.fetch(new Request(url.origin + "/do/chat", {
         method: "POST",
