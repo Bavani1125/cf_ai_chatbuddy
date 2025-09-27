@@ -1,0 +1,22 @@
+{
+  "name": "cf-ai-chatbuddy",
+  "main": "src/index.js",
+  "compatibility_date": "2024-10-01",
+
+  // Workers AI binding
+  "ai": { "binding": "AI" },
+
+  // Durable Object binding
+  "durable_objects": {
+    "bindings": [
+      { "name": "CHAT_DO", "class_name": "ChatSession" }
+    ]
+  },
+
+  "migrations": [
+    { "tag": "v1", "new_classes": ["ChatSession"] }
+  ],
+
+  // Static assets (chat UI)
+  "assets": { "directory": "public" }
+}
