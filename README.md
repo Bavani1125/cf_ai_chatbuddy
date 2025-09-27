@@ -3,7 +3,9 @@
 AI-powered chat application built with **Cloudflare Workers**, **Durable Objects**, and **Workers AI**.  
 This project demonstrates the integration of Large Language Models (LLMs) with session memory and a simple web-based chat UI.  
 
----
+## 🌐 Live Demo
+👉 [Click here to try the deployed app](https://cf-ai-chatbuddy.bavanikarthikeyan11.workers.dev)
+
 
 ## 🚀 Features
 - **LLM Integration** – Uses Cloudflare Workers AI (Llama 3.1) for natural language responses.  
@@ -70,6 +72,9 @@ After deployment, you’ll receive a live Cloudflare URL (e.g. `https://cf-ai-ch
 
 ---
 
-## 📜 License
-This project is for demonstration and internship evaluation purposes only.  
-All rights reserved © 2025.
+## System Design 
+<img src="System Architecture – Cloudflare AI ChatBuddy.png" width="800"/>
+
+## Screenshots
+<img src="Screenshot 1.png" width="800"/>
+<img src="Screenshot 2.png" width="800"/>

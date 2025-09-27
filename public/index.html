@@ -4,38 +4,33 @@
   <meta charset="utf-8">
   <title>Cloudflare AI ChatBuddy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body { font: 16px/1.4 system-ui, Arial; max-width: 760px; margin: 2rem auto; padding: 0 1rem; }
-    h1 { text-align: center; }
-    .bubble { padding: .75rem 1rem; border-radius: 12px; margin: .4rem 0; }
-    .user { background: #e8f0fe; align-self: flex-end; }
-    .bot { background: #f1f3f4; }
-    #log { display: flex; flex-direction: column; }
-    .row { display: flex; gap: 8px; margin-top: 12px; }
-    input, button, textarea { font: inherit; }
-    textarea { width: 100%; height: 60px; }
-  </style>
+
+ 
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>🤖 Cloudflare AI ChatBuddy</h1>
-  <p>Minimal demo for the Cloudflare internship assignment. Powered by Workers AI + Durable Objects.</p>
+  <div class="container">
+    <h1>🤖 Cloudflare AI ChatBuddy</h1>
+    <p>Your smart AI assistant powered by Cloudflare Workers ✨</p>
 
-  <label>System Prompt (optional):</label>
-  <textarea id="systemPrompt" placeholder="You are a concise, helpful assistant."></textarea>
+    <label for="system-prompt">System Prompt (optional):</label>
+    <textarea id="system-prompt" placeholder="You are a concise, helpful assistant."></textarea>
 
-  <div id="log"></div>
+    <div id="chat-box"></div>
 
-  <div class="row">
-    <input id="msg" placeholder="Type a message..." style="flex:1;">
-    <button id="send">Send</button>
+    <div class="row">
+      <input type="text" id="user-input" placeholder="Type a message...">
+      <button id="send">Send</button>
+    </div>
   </div>
+
 
   <script>
     const sessionId = crypto.randomUUID();
 
     async function sendMessage() {
-      const input = document.getElementById('msg');
-      const sp = document.getElementById('systemPrompt');
+      const input = document.getElementById('user-input');
+      const sp = document.getElementById('system-prompt');
       const text = input.value.trim();
       if (!text) return;
 
@@ -60,12 +55,12 @@
       const div = document.createElement('div');
       div.className = 'bubble ' + (who === 'user' ? 'user' : 'bot');
       div.textContent = text;
-      document.getElementById('log').appendChild(div);
+      document.getElementById('chat-box').appendChild(div);
       window.scrollTo(0, document.body.scrollHeight);
     }
 
     document.getElementById('send').onclick = sendMessage;
-    document.getElementById('msg').addEventListener('keydown', (e) => {
+    document.getElementById('user-input').addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
         e.preventDefault();
         sendMessage();
